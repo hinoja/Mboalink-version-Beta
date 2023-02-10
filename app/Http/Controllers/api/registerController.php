@@ -1,12 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\api\front;
+namespace App\Http\Controllers\API;
 
 use Exception;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-// use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Http;
 
@@ -38,6 +37,7 @@ class registerController extends Controller
                     'birthDay' => $data['birthDay'],
                     'password' => Hash::make($data['password']),
                 ]);
+                // Notification::send($user, new WelcomeNotification($user));
                 return response()->json([
                     'status' => 1,
                     'User' => $user,

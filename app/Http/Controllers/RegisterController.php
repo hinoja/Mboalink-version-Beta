@@ -26,7 +26,6 @@ class RegisterController extends Controller
      */
     public function store(Request $request)
     {
-        // dd("ddd");
         $apiKey = "Q0b2xqmiV0Uya2ISFqPzG5yuNvcEUJ";
         $data = $request->validate([
             'name' => ['required', 'string', 'min:2'],
