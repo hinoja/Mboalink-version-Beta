@@ -41,7 +41,6 @@
                                         <span class="error text-danger">{{ $message }}</span>
                                     @enderror <br>
                                     <label for="town"><i class="fa fa-globe" aria-hidden="true"></i> Town: </label>
-                                    {{-- {{-- <input name="text"   pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter email address'" class="common-input mb-20 form-control" required="" type="password"> --}}
                                     <select name="townField" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$"
                                         onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter town address'"
                                         class="common-input mb-20 form-control" required="">
@@ -75,12 +74,6 @@
 
     </section>
 @endsection
-{{--
-@push('googleMap')
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=GOOGLE_MAP_API_KEY&libraries=places®ion=in"></script>
-@endpush --}}
-
 @section('banner')
     <section class="banner-area relative" id="home">
         <div class="overlay overlay-bg"></div>

@@ -43,7 +43,7 @@ class registerController extends Controller
                 return response()->json([
                     'status' => 1,
                     'User' => $user,
-                    "message" => "You're registered successfuly,Verify your mailBox"
+                    "message" => "You had registered successfuly,Verify your mailBox"
                 ]);
                 //  Avatar::create($this->name)->save(storage_path('app/public/Avatar/avatar-' . $user->id . '.png', $quality = 90));
             } else {
