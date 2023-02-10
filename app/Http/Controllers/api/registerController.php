@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Http;
+use App\Notifications\WelcomeNotification;
+use Illuminate\Support\Facades\Notification;
 
 class registerController extends Controller
 {
@@ -37,7 +39,7 @@ class registerController extends Controller
                     'birthDay' => $data['birthDay'],
                     'password' => Hash::make($data['password']),
                 ]);
-                // Notification::send($user, new WelcomeNotification($user));
+                Notification::send($user, new WelcomeNotification($user));
                 return response()->json([
                     'status' => 1,
                     'User' => $user,

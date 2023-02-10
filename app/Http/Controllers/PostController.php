@@ -15,7 +15,7 @@ class PostController extends Controller
      */
     public function index()
     {
-         
+
     }
 
     /**
@@ -40,11 +40,11 @@ class PostController extends Controller
             'title' => ['required', 'max:255'],
             'body' => ['required'],
         ]);
-        // dd($data,Auth::user()->id);
+        // dd($data,Auth::user());
         Post::create([
             'title'=>$request->title,
             'body'=>$request->body,
-            'user_id'=>Auth::user()->id,
+            'user_id'=>Auth::user()->id
         ]);
         return redirect()->back()->with('success', 'You post is considerated with successfully');
     }
@@ -57,7 +57,11 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        //
+        // dd($id);
+        $post=Post::find($id);
+        // dd($post);
+        return view('post.singlePost',['post'=>$post]);
+
     }
 
     /**

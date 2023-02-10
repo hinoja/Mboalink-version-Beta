@@ -19,7 +19,7 @@ use App\Http\Controllers\RegisterController;
 */
 // welcome
 Route::view('/', 'welcome')->name('home');
-Route::view('/post/show', 'post.singlePost')->name('post.show');
+Route::get('/post/show/{id}', [PostController::class, 'show'])->name('post.select');
 // login
 Route::group(['middleware' => 'guest'], function () {
     Route::view('/loginr', 'loginPage')->name('login');

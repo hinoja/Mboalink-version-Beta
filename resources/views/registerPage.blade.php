@@ -101,15 +101,11 @@
 @push('sweetAlert')
     @if (session()->has('success'))
         <script>
-            swal("Success", "{!! Session::get('success') !!}", "success", {
-                button: "ok"
-            });
+            swal("Success", "{!! Session::get('success') !!}", "success");
         </script>
     @elseif (session()->has('danger'))
         <script>
-            swal("Error", "{!! Session::get('danger') !!}", "error", {
-                button: "ok"
-            });
+            swal("Error", "{!! Session::get('danger') !!}", "error");
         </script>
     @endif
 @endpush

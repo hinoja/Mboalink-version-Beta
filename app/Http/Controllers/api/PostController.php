@@ -42,9 +42,9 @@ class PostController extends Controller
             'body' => ['required'],
         ]);
         Post::create([
-            'title' => $request->title,
-            'body' => $request->body,
-            'user_id' => Auth::user()->id,
+            'title'=>$request->title,
+            'body'=>$request->body,
+            'user_id'=>Auth::user()->id
         ]);
         return response()->json([
             'status' => 1,

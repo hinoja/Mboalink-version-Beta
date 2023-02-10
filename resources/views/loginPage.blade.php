@@ -48,7 +48,8 @@
                         Login
                     </h1>
                     <p class="text-white"><a href="{{ route('home') }}">Home </a> <span class="lnr lnr-arrow-right"></span>
-                        <a href="{{ route('login') }}"> Login</a></p>
+                        <a href="{{ route('login') }}"> Login</a>
+                    </p>
                 </div>
             </div>
         </div>
@@ -57,15 +58,11 @@
 @push('sweetAlert')
     @if (session()->has('success'))
         <script>
-            swal("Success", "{!! Session::get('success') !!}", "success", {
-                button: "ok"
-            });
+            swal("Success", "{!! Session::get('success') !!}", "success");
         </script>
     @elseif (session()->has('danger'))
         <script>
-            swal("Error", "{!! Session::get('error') !!}", "error", {
-                button: "ok"
-            });
+            swal("Error", "{!! Session::get('danger') !!}", "error");
         </script>
     @endif
 @endpush

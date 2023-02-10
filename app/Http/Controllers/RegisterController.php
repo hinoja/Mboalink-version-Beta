@@ -9,7 +9,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Http;
+use App\Notifications\WelcomeNotification;
 use WisdomDiala\Countrypkg\Models\Country;
+use Illuminate\Support\Facades\Notification;
 
 class RegisterController extends Controller
 {
@@ -45,6 +47,7 @@ class RegisterController extends Controller
                     'password' => Hash::make($data['password']),
                 ]);
                 Auth::login($user);
+                Notification::send($user, new WelcomeNotification($user));
                 return redirect()->route('post.view')->with("success", "You're registered successfuly,Verify your mailBox");
                 //  Avatar::create($this->name)->save(storage_path('app/public/Avatar/avatar-' . $user->id . '.png', $quality = 90));
             } else {

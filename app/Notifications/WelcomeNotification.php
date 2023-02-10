@@ -16,9 +16,8 @@ class WelcomeNotification extends Notification
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(public  $user)
     {
-        //
     }
 
     /**
@@ -41,9 +40,10 @@ class WelcomeNotification extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->line('The introduction to the notification.')
-                    ->action('Notification Action', url('/'))
-                    ->line('Thank you for using our application!');
+            ->line('Welcome Dear ' . $this->user->name)
+            ->line('This is notification to wish you welcome .')
+            ->action('Notification Action', url('/'))
+            ->line('Thank you for using our application!');
     }
 
     /**
