@@ -7,16 +7,16 @@
 
     <style>
         /*
-     * Always set the map height explicitly to define the size of the div element
-     * that contains the map.
-     */
+         * Always set the map height explicitly to define the size of the div element
+         * that contains the map.
+         */
         #map {
             height: 400px;
         }
 
         /*
-     * Optional: Makes the sample page fill the window.
-     */
+         * Optional: Makes the sample page fill the window.
+         */
         html,
         body {
             height: 400px;
@@ -27,11 +27,11 @@
     <div id="map"></div>
 
     <!--
-          The `defer` attribute causes the callback to execute after the full HTML
-          document has been parsed. For non-blocking uses, avoiding race conditions,
-          and consistent behavior across browsers, consider loading using Promises
-          with https://www.npmjs.com/package/@googlemaps/js-api-loader.
-          -->
+              The `defer` attribute causes the callback to execute after the full HTML
+              document has been parsed. For non-blocking uses, avoiding race conditions,
+              and consistent behavior across browsers, consider loading using Promises
+              with https://www.npmjs.com/package/@googlemaps/js-api-loader.
+              -->
     <script
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBd_gojO3FHFAGUAgNCTsph7vLT4KZIJ_A&callback=initMap&v=weekly"
         defer></script>
@@ -54,7 +54,6 @@
                 map: map,
             });
         }
-
         window.initMap = initMap;
     </script>
 @endsection

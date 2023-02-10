@@ -18,14 +18,14 @@
                             <div class="row">
                                 <div class="col-lg-12 form-group">
                                     <label for="name">Name:</label>
-                                    <input name="name" name="name" placeholder="Enter your name"
+                                    <input name="name" value="{{ old('name') }}" placeholder="Enter your name"
                                         onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your name'"
                                         class="common-input mb-20 form-control" required="" type="text">
                                     @error('name')
                                         <span class="error text-danger">{{ $message }}</span>
                                     @enderror <br>
                                     <label for=""> Email:</label>
-                                    <input name="email" name="email" placeholder="Enter email address"
+                                    <input name="email" value="{{ old('email') }}" placeholder="Enter email address"
                                         pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$"
                                         onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter email address'"
                                         class="common-input mb-20 form-control" required="" type="email">
@@ -33,7 +33,7 @@
                                         <span class="error text-danger">{{ $message }}</span>
                                     @enderror <br>
                                     <label for="birthDay"> BirthDay:</label>
-                                    <input name="birthDay" name="birthDay"
+                                    <input name="birthDay" value="{{ old('birthDay') }}"
                                         pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$"
                                         onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter birthDay'"
                                         class="common-input mb-20 form-control" required="" type="date">
@@ -53,8 +53,8 @@
                                         <span class="error text-danger">{{ $message }}</span>
                                     @enderror <br>
                                     <label for="password"> Password:</label>
-                                    <input name="password" name="password" class="common-input mb-20 form-control"
-                                        required="" type="password">
+                                    <input name="password" class="common-input mb-20 form-control" required=""
+                                        type="password">
                                     @error('password')
                                         <span class="error text-danger">{{ $message }}</span>
                                     @enderror <br>
@@ -90,8 +90,9 @@
                     <h1 class="text-white">
                         Register
                     </h1>
-                    <p class="text-white"><a href="{{ route('home') }}">Home </a> <span class="lnr lnr-arrow-right"></span> <a
-                            href="{{ route('register') }}"> Register</a></p>
+                    <p class="text-white"><a href="{{ route('home') }}">Home </a> <span class="lnr lnr-arrow-right"></span>
+                        <a href="{{ route('register') }}"> Register</a>
+                    </p>
                 </div>
             </div>
         </div>
@@ -100,18 +101,15 @@
 @push('sweetAlert')
     @if (session()->has('success'))
         <script>
-            // swal("Hello", "Congratulations", "success", {
             swal("Success", "{!! Session::get('success') !!}", "success", {
                 button: "ok"
             });
         </script>
     @elseif (session()->has('danger'))
         <script>
-            // swal("Hello", "Congratulations", "success", {
-            swal("Error", "{!! Session::get('success') !!}", "error", {
+            swal("Error", "{!! Session::get('danger') !!}", "error", {
                 button: "ok"
             });
         </script>
     @endif
-
 @endpush

@@ -5,6 +5,7 @@ use App\Http\Livewire\Register;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\loginController;
 use App\Http\Controllers\MapController;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\RegisterController;
 
 /*
@@ -17,17 +18,23 @@ use App\Http\Controllers\RegisterController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+// welcome
 Route::get('/', function () {
     return view('welcome');
 })->name('home');
-// Route::post('/postRegister', [Register::class,'signUp']);
-// Route::get('/register', 'registerPage')->name('register');
-Route::view('/loginr', 'loginPage')->name('login');
-// Route::get('/register', Login::class);
-// Route::get('/register', Register::class);
-Route::post('/registerPost',[RegisterController::class,'store'])->name('registerPost');
-Route::get('/register',[RegisterController::class,'page'])->name('register');
-Route::post('/loginPost',loginController::class)->name('loginPost');
-Route::view('/login','loginPage')->name('login');
-Route::get('/localisation',[MapController::class,'location'])->name('mapRoute');
+// login
+// Route::middleware('guest', function () {
+//     Route::view('/loginr', 'loginPage')->name('login');
+//     Route::post('/loginPost', loginController::class)->name('loginPost');
+//     // Register
+//     Route::get('/register', [RegisterController::class, 'page'])->name('register');
+//     Route::post('/registerPost', [RegisterController::class, 'store'])->name('registerPost');
+// });
+// //Map
+// Route::get('/localisation', [MapController::class, 'location'])->name('mapRoute');
+
+// //Post
+// Route::middleware('auth', function () {
+//     Route::view('/post', 'post.addPost')->name('post.view');
+//     Route::post('/addPost', PostController::class)->name('post.add');
+// });

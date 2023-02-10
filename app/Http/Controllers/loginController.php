@@ -25,20 +25,13 @@ class loginController extends Controller
         $password = $data['password'];
         $user = User::where('email', $data['email'])->first();
         if ($user) {
-            // dd('etape');
             if (Hash::check($password, $user->password)) {
-            // dd('1etape');
-
                 Auth::login($user);
                 return redirect()->back()->with("success", "Hello " . $user->name);
             } else
-            dd('2etape');
-
                 return redirect()->back()->with("danger", "Verify yours accreditials ");
-        }else{
-                // dd('Etap2');
+        } else {
             return redirect()->back()->with("danger", "This User is not exist here ");
         }
-
     }
 }
