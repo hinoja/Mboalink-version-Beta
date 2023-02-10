@@ -19,9 +19,9 @@ use App\Http\Controllers\api\front\registerController;
 
 
 Route::group(['middleware' => 'guest'], function () {
-    Route::post('/loginPost', [LoginController::class]);
-    Route::post('/registerPost', [registerController::class]);
+    Route::post('/loginPost', LoginController::class);
+    Route::post('/registerPost', registerController::class);
 });
 Route::group(['middleware' => 'auth:sanctum'], function () {
-    Route::post('/addPost', [PostController::class]);
+    Route::post('/addPost', [PostController::class, 'store']);
 });

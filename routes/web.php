@@ -18,10 +18,10 @@ use App\Http\Controllers\RegisterController;
 |
 */
 // welcome
-Route::view('/','welcome')->name('home');
-Route::view('/post/show','post.singlePost')->name('post.show');
+Route::view('/', 'welcome')->name('home');
+Route::view('/post/show', 'post.singlePost')->name('post.show');
 // login
-Route::group(['middleware' =>'guest' ], function () {
+Route::group(['middleware' => 'guest'], function () {
     Route::view('/loginr', 'loginPage')->name('login');
     Route::post('/loginPost', loginController::class)->name('loginPost');
     // Register
@@ -31,9 +31,7 @@ Route::group(['middleware' =>'guest' ], function () {
 //Post
 Route::group(['middleware' => 'auth'], function () {
     Route::view('/post', 'post.addPost')->name('post.view');
-    Route::post('/addPost', PostController::class)->name('post.add');
+    Route::post('/addPost', [PostController::class, 'store'])->name('post.add');
 });
-
 //Map
 Route::get('/localisation', [MapController::class, 'location'])->name('mapRoute');
-
