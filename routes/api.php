@@ -23,6 +23,7 @@ Route::group(['middleware' => 'guest'], function () {
     Route::post('/loginPost', LoginController::class);
     Route::post('/registerPost', registerController::class);
 });
+Route::get('/post/show/{id}', [PostController::class, 'show'])->name('post.select');
 Route::group(['middleware' => 'auth:sanctum'], function () {
     Route::post('/addPost', [PostController::class, 'store']);
 });

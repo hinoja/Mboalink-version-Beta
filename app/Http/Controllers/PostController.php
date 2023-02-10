@@ -57,9 +57,7 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        // dd($id);
         $post=Post::find($id);
-        // dd($post);
         return view('post.singlePost',['post'=>$post]);
 
     }

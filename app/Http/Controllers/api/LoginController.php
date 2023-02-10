@@ -25,13 +25,12 @@ class LoginController extends Controller
         $user = User::where('email', $request->email)->first();
         if ($user) {
             if (Hash::check($request->password, $user->password)) {
-                // $token =  $user->createToken('auth_token')->plainTextToken;
-                $token = $request->user()->createToken($request->token_name);
+                $token =  $user->createToken('auth_token')->plainTextToken;
                 Auth::login($user);
                 return response()->json([
                     "Staus" => "1",
-                    "message" => "Hello " . $request->name,
-                    'token' => $token->plainTextToken
+                    "message" => "Hello ".$user->name,
+                    'token' => $token
                 ]);
             } else {
                 return response()->json([
