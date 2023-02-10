@@ -28,7 +28,6 @@ class LoginController extends Controller
                 // $token =  $user->createToken('auth_token')->plainTextToken;
                 $token = $request->user()->createToken($request->token_name);
                 Auth::login($user);
-
                 return response()->json([
                     "Staus" => "1",
                     "message" => "Hello " . $request->name,

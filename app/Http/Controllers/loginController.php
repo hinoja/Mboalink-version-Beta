@@ -17,7 +17,6 @@ class loginController extends Controller
      */
     public function __invoke(Request $request)
     {
-        // dd('test');
         $data = $request->validate([
             'email' => ['required', 'email'],
             'password' => ['required', 'min:8'],

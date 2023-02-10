@@ -17,10 +17,11 @@ use App\Http\Controllers\api\front\registerController;
 |
 */
 
-Route::middleware('guest', function () {
+
+Route::group(['middleware' => 'guest'], function () {
     Route::post('/loginPost', [LoginController::class]);
     Route::post('/registerPost', [registerController::class]);
 });
-Route::middleware('auth:sanctum', function () {
+Route::group(['middleware' => 'auth:sanctum'], function () {
     Route::post('/addPost', [PostController::class]);
 });
