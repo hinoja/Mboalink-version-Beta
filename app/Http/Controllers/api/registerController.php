@@ -42,7 +42,7 @@ class registerController extends Controller
                 Notification::send($user, new WelcomeNotification($user));
                 return response()->json([
                     'status' => 1,
-                    'User' => $user,
+                   'User' => $user,
                     "message" => "You had registered successfuly,Verify your mailBox"
                 ]);
                 //  Avatar::create($this->name)->save(storage_path('app/public/Avatar/avatar-' . $user->id . '.png', $quality = 90));
