@@ -1,11 +1,12 @@
 <?php
 
-
+use App\Http\Controllers\GetemailResetController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\loginController;
 use App\Http\Controllers\MapController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\updatePasswordController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,6 +23,7 @@ Route::view('/', 'welcome')->name('home');
 Route::get('/post/show/{id}', [PostController::class, 'show'])->name('post.select');
 // login
 Route::group(['middleware' => 'guest'], function () {
+    //ResetPassword
     Route::view('/loginr', 'loginPage')->name('login');
     Route::post('/loginPost', loginController::class)->name('loginPost');
     // Register
@@ -35,3 +37,8 @@ Route::group(['middleware' => 'auth'], function () {
 });
 //Map
 Route::get('/localisation', [MapController::class, 'location'])->name('mapRoute');
+ROute::patch('/updatePasswordPost', [updatePasswordController::class, 'updating'])->name('updatePasswordPost');
+Route::post('/getEmail', [GetemailResetController::class, 'recovery'])->name('email.recovery.post');
+
+    Route::get('/restPassword/{token}', [updatePasswordController::class,'showFormUpdate'])->name('email.update.view');
+    Route::view('/getEmail', 'GetEmailForResetPassword')->name('get.email');
