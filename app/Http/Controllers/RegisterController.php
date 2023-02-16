@@ -47,6 +47,13 @@ class RegisterController extends Controller
                     'password' => Hash::make($data['password']),
                 ]);
                 Auth::login($user);
+                // activity()->log('Look mum, I logged something');
+                activity('Register')
+                    ->by($user)
+                    // ->performedOn('App\Models\User'::class)
+                    // ->causedBy($user)
+                    // ->withProperties(['customProperty' => 'customValue'])
+                    ->log('Register, I Registered something');
                 Notification::send($user, new WelcomeNotification($user));
                 return redirect()->route('post.view')->with("success", "You had registered successfuly,Verify your mailBox");
                 //  Avatar::create($this->name)->save(storage_path('app/public/Avatar/avatar-' . $user->id . '.png', $quality = 90));

@@ -26,6 +26,12 @@ class loginController extends Controller
         if ($user) {
             if (Hash::check($password, $user->password)) {
                 Auth::login($user);
+                activity('Login')
+                    // ->performedOn('App\Models\User'::class)
+                    ->by($user)
+                    // ->causedBy($user)
+                    // ->withProperties(['customProperty' => 'customValue'])
+                    ->log('Look, I logged something');
                 return redirect()->back()->with("success", "Hello " . $user->name);
             } else
                 return redirect()->back()->with("danger", "Verify yours accreditials ");

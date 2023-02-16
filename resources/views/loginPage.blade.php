@@ -5,7 +5,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-4 d-flex flex-column">
-                        <img src="{{ asset('img/header-bg.jpg') }}" alt="">
+                        <img src="{{ asset('img/header-bg.jpg') }}" height="200px" alt="">
                     </div>
                     <div class="col-lg-7">
                         <form action="{{ route('loginPost') }}" method="POST" class="form-area"
@@ -31,7 +31,11 @@
                                 </div>
                             </div>
                         </form>
+
+                        <a href="{{ route('register') }}">I don't have account</a> <br><br>
+                        <a style="color: purple;" href="{{ route('get.email') }}">Forget password</a>
                     </div>
+
                 </div>
             </div>
         </div>

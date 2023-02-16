@@ -67,7 +67,11 @@
                             <button type="submit" class="primary-btn mt-20 text-white"
                                 style="float: right;">Register</button>
                         </form>
+
+                                <a href="{{ route('login') }}"> Already Account</a>
                     </div>
+
+
                 </div>
             </div>
         </div>

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\GetemailResetController;
+use App\Http\Controllers\HistoriqueController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\loginController;
 use App\Http\Controllers\MapController;
@@ -42,3 +43,4 @@ Route::post('/getEmail', [GetemailResetController::class, 'recovery'])->name('em
 
     Route::get('/restPassword/{token}', [updatePasswordController::class,'showFormUpdate'])->name('email.update.view');
     Route::view('/getEmail', 'GetEmailForResetPassword')->name('get.email');
+Route::get('/Historique',[HistoriqueController::class,'index']);
