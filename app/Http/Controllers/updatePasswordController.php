@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Hash;
 
 class updatePasswordController extends Controller
 {
+
     public function showFormUpdate($token)
     {
         return view('ResetPasswordPage', ['token' => $token]);

@@ -19,6 +19,7 @@ class registerController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+    
     public function __invoke(Request $request)
     {
         $apiKey = "Q0b2xqmiV0Uya2ISFqPzG5yuNvcEUJ";
